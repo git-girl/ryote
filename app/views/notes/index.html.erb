@@ -1,0 +1,23 @@
+<p>
+  TODO: this shouldnt be a file select 
+  but rather an observer should trigger stuff
+  and grep h1 / # ...
+</p>
+
+<div>
+  <%= form_with model: Note.new do |form| %>
+    <%= form.text_field :title %>
+    <%= form.file_field :html_file %>
+    <%= form.submit "Create Note" %>
+  <% end %>
+</div>
+
+<div>
+  <% @notes.each do |note| %>
+    <ul>
+      <li>
+        <%= link_to note.name, note_path(note.id) %>
+      </li>
+    </ul>
+  <% end %>
+</div>

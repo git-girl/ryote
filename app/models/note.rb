@@ -5,7 +5,9 @@ class Note < ApplicationRecord
   has_one_attached :html_file
   # TODO: add a tag migration
 
-  def title
-    title || created_at.to_s
+  def name
+    name = created_at.to_s unless title.present?
+    name = title
+    name = "The nameless note" unless name.present?
   end
 end

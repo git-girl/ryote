@@ -25,7 +25,16 @@ class FileManager
     raise 'tried converting non markdown file' unless markdown?
 
     pandoc_html = PandocRuby.convert(read_file, from: :markdown, to: :html)
-
     File.write("./files/#{SecureRandom.uuid}.html", pandoc_html)
+
+    pandoc_html
+  end
+
+  # return array of context_dir and filename to splat
+  # when creating FM on active_storage blob
+  def self.seperate_path_name(filepath)
+    array = File.split(filepath)
+    array[0] = ".#{array[0]}" # HACK: on app root dir
+    array
   end
 end
