@@ -161,6 +161,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    pandoc-ruby (2.1.7)
     parser (3.2.1.0)
       ast (~> 2.4.1)
     path_expander (1.1.1)
@@ -320,6 +321,7 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
+  pandoc-ruby
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)
