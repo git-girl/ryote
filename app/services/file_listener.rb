@@ -24,13 +24,18 @@ class FileListener
       # TODO: Fix this error ( Message Verifier invalid Signature )
 
       # https://apidock.com/rails/v6.1.3.1/ActiveStorage/Blob/create_and_upload%21/class
-      puts 'start blobby'
       blobby = ActiveStorage::Blob.create_and_upload!(io: added_io, filename: added_path)
       pp blobby
-      puts 'end blobby'
 
-      Note.new(title: 'test',
-               html_file: blobby).save
+      note = Note.new(title: 'test',
+                      html_file: blobby)
+
+      tag_hash = Tag.tags_for_path(added_path)
+      tag = Tag.create(name: tag_hash[:tag])
+
+      note.update(tag: tag)
+
+      note.save
     end
     self.listener = listener
   end

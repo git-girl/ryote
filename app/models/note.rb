@@ -3,6 +3,7 @@
 # These are very close to UI representations of Notes i take
 class Note < ApplicationRecord
   has_one_attached :html_file
+  has_one :tag
   # TODO: add a tag migration
 
   def name
