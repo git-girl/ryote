@@ -2,7 +2,11 @@
   <h1>Welcome To Ryote</h1> 
   <p>
 
-  <%= link_to "Notes", notes_path() %>
+  <div>
+    <h2>File Listener Status: <%= @file_listener.processing? %></h2>
+  </div>
+
+  <%= link_to "Notes", notes_path(), class: "btn btn-info" %>
 
     <p>my shot at making notetaking easy, fun and pretty</p>
 
@@ -19,14 +23,5 @@
       <li>Tag and Categories Tree</li>
       <li>...</li>
     </ul>
-
-    <button type="button" 
-            class="btn btn-lg btn-danger" 
-            data-bs-toggle="popover" 
-            title="Popover title" 
-            data-bs-content="Amazing content, right ?">
-            Click to toggle popover
-    </button>  
-
   </p>
 </div>

@@ -1,8 +1,15 @@
+<%# TODO: is there a better way to do this? %>
+
+<%= stylesheet_link_tag "pandoc", "data-turbo-track": "reload" %>  
+<%# stylesheet_link_tag "prism", "data-turbo-track": "reload" %>   
 
 <% if @note.html_file.attached? %>
-<%= render html: FileManager.new('./files', 'pandoc_test.md').convert_to_html.html_safe  %> 
+  <%= render html: FileManager.new('', @note.file_path).convert_to_html.html_safe  %> 
 <% else %>
   <p>
     Note with nothing to render :(
   </p>
 <% end %>
+
+<%# sus %>
+<%# javascript_include_tag "prism", "data-turbo-track": "reload", defer: true %>

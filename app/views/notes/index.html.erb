@@ -5,6 +5,10 @@
 </p>
 
 <div>
+  <h2>File Listener Status: <%= @file_listener.processing? %></h2>
+</div>
+
+<div>
   <%= form_with model: Note.new do |form| %>
     <%= form.text_field :title %>
     <%= form.file_field :html_file %>

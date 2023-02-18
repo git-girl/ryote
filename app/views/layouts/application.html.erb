@@ -6,14 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="bg-dark text-light">
-    <div class="main_app">
-      <%= render 'layouts/navbar' %>
-      <%= yield %>
-    </div>
+  <body>
+    <div class="container">
+      <div class="column">
+        <div class="row">
+          <%= render 'layouts/navbar' %>
+          <%= yield %>
+        </div>
+      </div>
+      <div>
   </body>
+
 </html>

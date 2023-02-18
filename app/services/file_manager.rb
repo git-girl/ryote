@@ -12,7 +12,7 @@ class FileManager
   end
 
   def read_file
-    File.read("#{context_dir}/#{file_name}")
+    File.read(file_name)
   end
   # TODO: save_file(context_dir, file_name)
 
@@ -22,7 +22,11 @@ class FileManager
 
   # TODO: move this somewhere else
   def convert_to_html
-    raise 'tried converting non markdown file' unless markdown?
+    # TODO: get a solution that works with active storage blobs
+    #
+    # raise 'tried converting non markdown file' unless markdown?
+    #
+    # Active Storage Blobs have a content_type -> 'text/markdown'
 
     pandoc_html = PandocRuby.convert(read_file, from: :markdown, to: :html)
     File.write("./files/#{SecureRandom.uuid}.html", pandoc_html)
@@ -36,5 +40,9 @@ class FileManager
     array = File.split(filepath)
     array[0] = ".#{array[0]}" # HACK: on app root dir
     array
+  end
+
+  def self.relative_path(filepath)
+    filepath.gsub(/#{Rails.root}/, '.').to_s
   end
 end
