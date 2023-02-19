@@ -1,14 +1,19 @@
-<div>
-  <h1>Welcome To Ryote</h1> 
-  <p>
+<div class="grid grid-rows-4 gap-4">
+
+  <h1 class="text-3xl font-bold underline">
+    Welcome To Ryote
+  </h1> 
 
   <div>
     <h2>File Listener Status: <%= @file_listener.processing? %></h2>
   </div>
 
-  <%= link_to "Notes", notes_path(), class: "btn btn-info" %>
 
-    <p>my shot at making notetaking easy, fun and pretty</p>
+  <div>
+    <p class="text-lg">
+      my shot at making notetaking easy, fun and pretty
+    </p>
+  </div>
 
     <h3>Required Actions</h3>
     <ul>
@@ -23,5 +28,5 @@
       <li>Tag and Categories Tree</li>
       <li>...</li>
     </ul>
-  </p>
+
 </div>

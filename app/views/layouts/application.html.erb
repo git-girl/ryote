@@ -6,19 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
-    <div class="container">
-      <div class="column">
-        <div class="row">
-          <%= render 'layouts/navbar' %>
-          <%= yield %>
-        </div>
+      <%= render 'layouts/navbar' %>
+      <div class="my-2">
+        <%= yield %>
       </div>
-      <div>
   </body>
 
 </html>
